@@ -6,7 +6,7 @@
 //  Copyright (c) Sam Soffes 2010-2014. All rights reserved.
 //
 
-#import "SSZipArchive.h"
+#import "betterSSZipArchive.h"
 #include "zip.h"
 #import "zlib.h"
 #import "zconf.h"
@@ -15,12 +15,12 @@
 
 #define CHUNK 16384
 
-@interface SSZipArchive ()
+@interface betterSSZipArchive ()
 + (NSDate *)_dateWithMSDOSFormat:(UInt32)msdosDateTime;
 @end
 
 
-@implementation SSZipArchive {
+@implementation betterSSZipArchive {
 	NSString *_path;
 	NSString *_filename;
     zipFile _zip;
@@ -227,7 +227,7 @@
                             // Unable to set the permissions attribute
                             NSLog(@"[SSZipArchive] Failed to set attributes - whilst setting permissions");
                         }
-                        
+
 #if !__has_feature(objc_arc)
                         [attrs release];
 #endif
@@ -305,7 +305,7 @@
 
 + (BOOL)createZipFileAtPath:(NSString *)path withFilesAtPaths:(NSArray *)paths {
 	BOOL success = NO;
-	SSZipArchive *zipArchive = [[SSZipArchive alloc] initWithPath:path];
+	betterSSZipArchive *zipArchive = [[betterSSZipArchive alloc] initWithPath:path];
 	if ([zipArchive open]) {
 		for (NSString *path in paths) {
 			[zipArchive writeFile:path];
@@ -325,7 +325,7 @@
     BOOL success = NO;
 
     NSFileManager *fileManager = nil;
-	SSZipArchive *zipArchive = [[SSZipArchive alloc] initWithPath:path];
+	betterSSZipArchive *zipArchive = [[betterSSZipArchive alloc] initWithPath:path];
 
 	if ([zipArchive open]) {
         // use a local filemanager (queue/thread compatibility)

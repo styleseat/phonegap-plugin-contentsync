@@ -43,8 +43,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     <platform name="ios">
         <source-file src="src/ios/ContentSync.m" />
         <header-file src="src/ios/ContentSync.h" />
-        <source-file src="src/ios/SSZipArchive.m" target-dir="minizip" />
-        <header-file src="src/ios/SSZipArchive.h" target-dir="minizip" />
+        <source-file src="src/ios/betterSSZipArchive.m" target-dir="minizip" />
+        <header-file src="src/ios/betterSSZipArchive.h" target-dir="minizip" />
         <source-file src="src/ios/minizip/zip.c" target-dir="minizip" />
         <header-file src="src/ios/minizip/zip.h" target-dir="minizip" />
         <source-file src="src/ios/minizip/unzip.c" target-dir="minizip" />

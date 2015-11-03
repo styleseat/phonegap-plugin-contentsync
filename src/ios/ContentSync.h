@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <Cordova/CDVPlugin.h>
-#import "SSZipArchive.h"
+#import "betterSSZipArchive.h"
 
 enum ProgressState {
     Stopped = 0,
